@@ -37,6 +37,19 @@ af Faro%C3%ABes 1 15934
 af Fat_Man 1 10044
 
 
+RedditAverage.java
+
+Each Reddit Comment has a score, each record is represented in a JSON format. This file works on determing the average of each subreddit.
+
+Sample input:
+
+{"archived": true, "author": "xelfer", "author_flair_css_class": null, "author_flair_text": null, "body": "Now with new xkcd subreddit!", "controversiality": 0, "created_utc": "1201240417", "distinguished": null, "downs": 0, "edited": false, "gilded": 0, "id": "c02zpp2", "link_id": "t3_66k1x", "name": "t1_c02zpp2", "parent_id": "t3_66k1x", "retrieved_on": 1425824816, "score": 2, "score_hidden": false, "subreddit": "xkcd", "subreddit_id": "t5_2qh0z", "ups": 2}
+
+The mapper will record the (comment number, score) for each subreddit
+
+The reducer will calculate the average for each subreddit
+
+The combiner will combine the output from the mapper so that records with the same key will be combined into 1 record. This minimizes the amount of data that hits the expensive shuffle
 
 
 
