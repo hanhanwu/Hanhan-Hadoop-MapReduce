@@ -55,3 +55,18 @@ The combiner will combine the output from the mapper so that records with the sa
 MultiLineRecordReader.java
 
 This one do the same thing as RedditAverage.java but deals with multiple line of JSON
+
+
+EulerEstimator.java
+
+We can estimate Euler's consant, e using a stochastic representation. Given a sequence X1,X2,… of uniform random variables on the range [0,1], we can take the smallest number of these such that the total is greater than one:
+
+V=min{n∣X1+X2+⋯+Xn>1}
+
+The expected value E(V)=e
+
+This file is using mapreduce to calculate e. The input files are files that contain a single integer on each line (use the default TextInputFormat). The integer indicates the number of iterations for your main loop.
+
+The mapper repeats the estimation of the random variable the number of times indicated in the input.
+
+The Hadoop counters will count the total number of iterations you have make, and the number of random numbers you had to generate.
