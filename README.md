@@ -37,7 +37,7 @@ af Faro%C3%ABes 1 15934
 af Fat_Man 1 10044
 
 
-RedditAverage.java
+RedditAverage.java, LongPairWritable.java
 
 Each Reddit Comment has a score, each record is represented in a JSON format. This file works on determing the average of each subreddit.
 
@@ -52,4 +52,6 @@ The reducer will calculate the average for each subreddit
 The combiner will combine the output from the mapper so that records with the same key will be combined into 1 record. This minimizes the amount of data that hits the expensive shuffle
 
 
+MultiLineRecordReader.java
 
+This one do the same thing as RedditAverage.java but deals with multiple line of JSON
